@@ -1,0 +1,43 @@
+<div class="form-container">
+  <mat-card class="form-card">
+    <h2>Evidentiraj Uplatu</h2>
+    <form [formGroup]="uplataForm" (ngSubmit)="submit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Iznos</mat-label>
+        <input matInput formControlName="iznos" type="number" />
+        <mat-error *ngIf="uplataForm.get('iznos')?.invalid">
+          Unesite validan iznos.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Svrha</mat-label>
+        <input matInput formControlName="svrha" type="text" />
+        <mat-error *ngIf="uplataForm.get('svrha')?.invalid">
+          Svrha je obavezna.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Izaberite Studenta</mat-label>
+        <mat-select formControlName="idStudent">
+          <mat-option *ngFor="let student of studenti" [value]="student.id">
+            {{ student.ime }} {{ student.prezime }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="uplataForm.get('idStudent')?.invalid">
+          Morate izabrati studenta.
+        </mat-error>
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="uplataForm.invalid"
+      >
+        Potvrdi Uplatu
+      </button>
+    </form>
+  </mat-card>
+</div>

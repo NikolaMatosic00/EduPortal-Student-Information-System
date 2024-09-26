@@ -1,0 +1,129 @@
+<div class="center bkg-image-auth">
+  <div class="card-wrapper-auth w-500">
+    <h4 class="h4-bold">Pregled prijava</h4>
+    <br />
+    <form>
+      <mat-form-field appearance="fill">
+        <mat-label>Termini</mat-label>
+        <mat-select
+          [(ngModel)]="idTermin"
+          name="idTermin"
+          (selectionChange)="onChangeTermin($event)"
+        >
+          <mat-option *ngFor="let t of termini" [value]="t.id">
+            {{ t.id }} - {{ t.nazivRoka }} - {{ t.predmet }} - Napomena({{
+              t.napomena
+            }})
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+
+    <mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="imeStudenta">
+        <mat-header-cell *matHeaderCellDef>Ime</mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="Ime">{{
+          element.imeStudenta
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="prezimeStudenta">
+        <mat-header-cell mat-header-cell *matHeaderCellDef
+          >Prezime</mat-header-cell
+        >
+        <mat-cell mat-cell *matCellDef="let element" data-label="Prezime">{{
+          element.prezimeStudenta
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="ostvarenBrojBodova">
+        <mat-header-cell mat-header-cell *matHeaderCellDef
+          >Bodovi</mat-header-cell
+        >
+        <mat-cell mat-cell *matCellDef="let element" data-label="Bodovi">{{
+          element.ostvarenBrojBodova
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="finalnaOcena">
+        <mat-header-cell mat-header-cell *matHeaderCellDef
+          >Ocena</mat-header-cell
+        >
+        <mat-cell mat-cell *matCellDef="let element" data-label="Ocena">{{
+          element.finalnaOcena
+        }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="istorija">
+        <mat-header-cell *matHeaderCellDef>Istorija</mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="Istorija">
+          <button
+            (click)="istorijaPolaganja(element)"
+            mat-button
+            matTooltip="Istorija prijava"
+          >
+            <mat-icon>history</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+
+    <mat-paginator
+      [pageSizeOptions]="[10, 20, 30]"
+      showFirstLastButtons
+    ></mat-paginator>
+    <br />
+    <div *ngIf="istorija.length > 0">
+      <mat-table [dataSource]="dataSourceIstorija">
+        <ng-container matColumnDef="nazivPredmeta">
+          <mat-header-cell *matHeaderCellDef>Predmet</mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="Predmet">{{
+            element.nazivPredmeta
+          }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="vremePrijave">
+          <mat-header-cell mat-header-cell *matHeaderCellDef
+            >Vreme prijave</mat-header-cell
+          >
+          <mat-cell
+            mat-cell
+            *matCellDef="let element"
+            data-label="Vreme prijave"
+            >{{ element.vremePrijave }}</mat-cell
+          >
+        </ng-container>
+        <ng-container matColumnDef="ostvarenBrojBodova">
+          <mat-header-cell mat-header-cell *matHeaderCellDef
+            >Bodovi</mat-header-cell
+          >
+          <mat-cell mat-cell *matCellDef="let element" data-label="Bodovi">{{
+            element.ostvarenBrojBodova
+          }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="finalnaOcena">
+          <mat-header-cell mat-header-cell *matHeaderCellDef
+            >Ocena</mat-header-cell
+          >
+          <mat-cell mat-cell *matCellDef="let element" data-label="Ocena">{{
+            element.finalnaOcena
+          }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="nazivRoka">
+          <mat-header-cell mat-header-cell *matHeaderCellDef
+            >Rok</mat-header-cell
+          >
+          <mat-cell mat-cell *matCellDef="let element" data-label="Rok">{{
+            element.nazivRoka
+          }}</mat-cell>
+        </ng-container>
+
+        <mat-header-row
+          *matHeaderRowDef="displayedColumnsIstorija"
+        ></mat-header-row>
+        <mat-row
+          *matRowDef="let row; columns: displayedColumnsIstorija"
+        ></mat-row>
+      </mat-table>
+    </div>
+  </div>
+</div>

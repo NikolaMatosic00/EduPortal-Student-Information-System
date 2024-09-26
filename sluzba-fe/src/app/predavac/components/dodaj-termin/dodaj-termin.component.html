@@ -1,0 +1,68 @@
+<div class="center bkg-image-auth">
+  <div class="card-wrapper-auth w-500">
+    <h4 class="h4-bold">Dodavanje termina</h4>
+    <br />
+    <form>
+      <mat-form-field appearance="fill">
+        <mat-label>Predmet</mat-label>
+        <mat-select
+          [(ngModel)]="termin.predmetId"
+          name="predmetId"
+          (selectionChange)="onChangePredmet($event)"
+        >
+          <mat-option *ngFor="let predmet of predmeti" [value]="predmet.id">
+            {{ predmet.naziv }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Tip polaganja</mat-label>
+        <mat-select [(ngModel)]="termin.tipPolaganjaId" name="tipPolaganjaId">
+          <mat-option *ngFor="let tip of tipoviPolaganja" [value]="tip.id">
+            {{ tip.naziv }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="napomena"
+          required
+          type="text"
+          [(ngModel)]="termin.napomena"
+          name="napomena"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="nazivRoka"
+          required
+          type="text"
+          [(ngModel)]="termin.nazivRoka"
+          name="nazivRoka"
+        />
+      </mat-form-field>
+
+      <div class="grid-2">
+        <button mat-button (click)="goBack()" class="primary-link">
+          <mat-icon> chevron_left </mat-icon>Nazad
+        </button>
+
+        <div>
+          <button
+            mat-raised-button
+            type="submit"
+            class="primary-button"
+            (click)="save()"
+          >
+            Dodaj
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

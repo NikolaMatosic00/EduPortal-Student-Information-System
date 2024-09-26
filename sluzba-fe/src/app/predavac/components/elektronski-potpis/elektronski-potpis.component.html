@@ -1,0 +1,34 @@
+<div class="center bkg-image-auth">
+  <div class="card-wrapper-auth w-500">
+    <h4 class="h4-bold">Dodela elektronskog potpisa</h4>
+    <br />
+    <form>
+      <mat-form-field appearance="fill">
+        <mat-label>Slusanja predmeta</mat-label>
+        <mat-select [(ngModel)]="idSlusaPredmet" name="idSlusaPredmet">
+          <mat-option *ngFor="let s of slusanja" [value]="s.id">
+            {{ s.nazivPredmet }} - {{ s.imeStudent }} - {{ s.prezimeStudent }} -
+            {{ s.indexStudent }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="grid-2">
+        <button mat-button (click)="goBack()" class="primary-link">
+          <mat-icon> chevron_left </mat-icon>Nazad
+        </button>
+
+        <div>
+          <button
+            mat-raised-button
+            type="submit"
+            class="primary-button"
+            (click)="save()"
+          >
+            Potpisi
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

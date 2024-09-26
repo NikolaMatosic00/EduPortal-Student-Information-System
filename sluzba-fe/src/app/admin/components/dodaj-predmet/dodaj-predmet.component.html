@@ -1,0 +1,95 @@
+<div class="center bkg-image-auth">
+  <div class="card-wrapper-auth w-500">
+    <h4 class="h4-bold">Dodavanje predmeta</h4>
+    <br />
+    <form>
+      <mat-form-field appearance="fill">
+        <mat-label>Smer</mat-label>
+        <mat-select [(ngModel)]="predmet.idSmer" name="idSmer">
+          <mat-option *ngFor="let smer of smerovi" [value]="smer.id">
+            {{ smer.naziv }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Semestar</mat-label>
+        <mat-select [(ngModel)]="predmet.idSemestar" name="idSemestar">
+          <mat-option *ngFor="let semestar of semestri" [value]="semestar.id">
+            {{ semestar.broj }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Naziv predmeta"
+          required
+          type="text"
+          [(ngModel)]="predmet.naziv"
+          name="naziv"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="ESPB"
+          required
+          type="number"
+          [(ngModel)]="predmet.espb"
+          name="espb"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Tip polaganja</mat-label>
+        <mat-select
+          [(ngModel)]="predmet.tipoviPolaganja"
+          name="tipoviPolaganja"
+          multiple
+        >
+          <mat-option *ngFor="let tip of tipoviPolaganja" [value]="tip.id">
+            {{ tip.naziv }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Tip</mat-label>
+        <mat-select [(ngModel)]="predmet.tip" name="tip">
+          <mat-option value="OBAVEZNI">OBAVEZNI</mat-option>
+          <mat-option value="NEOBAVEZNI">NEOBAVEZNI</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea
+          matInput
+          placeholder="Silabus"
+          required
+          [(ngModel)]="predmet.silabus"
+          name="silabus"
+        ></textarea>
+      </mat-form-field>
+
+      <div class="grid-2">
+        <button mat-button (click)="goBack()" class="primary-link">
+          <mat-icon> chevron_left </mat-icon>Nazad
+        </button>
+
+        <div>
+          <button
+            mat-raised-button
+            type="submit"
+            class="primary-button"
+            (click)="save()"
+          >
+            Dodaj
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

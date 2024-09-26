@@ -1,0 +1,18 @@
+<div class="form-container">
+  <h2>Dodaj Novi Smer</h2>
+  <form (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="naziv">Naziv Smera</label>
+      <input
+        type="text"
+        id="naziv"
+        [(ngModel)]="smer.naziv"
+        name="naziv"
+        required
+        class="form-control"
+      />
+    </div>
+    <button type="submit">Dodaj Smer</button>
+    <button type="button" (click)="goBack()">Nazad</button>
+  </form>
+</div>

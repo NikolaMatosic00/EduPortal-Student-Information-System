@@ -1,0 +1,74 @@
+<div class="center bkg-image-auth">
+  <div class="card-wrapper-auth w-500">
+    <h4 class="h4-bold">Pregled predmeta</h4>
+    <br />
+
+    <mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="naziv">
+        <mat-header-cell *matHeaderCellDef>Naziv</mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="Naziv">{{
+          element.naziv
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="silabus">
+        <mat-header-cell mat-header-cell *matHeaderCellDef
+          >Silabus</mat-header-cell
+        >
+        <mat-cell mat-cell *matCellDef="let element" data-label="Silabus">{{
+          element.silabus
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="tip">
+        <mat-header-cell mat-header-cell *matHeaderCellDef>Tip</mat-header-cell>
+        <mat-cell mat-cell *matCellDef="let element" data-label="Tip">{{
+          element.tip
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="finalnaOcena">
+        <mat-header-cell mat-header-cell *matHeaderCellDef
+          >Ocena</mat-header-cell
+        >
+        <mat-cell mat-cell *matCellDef="let element" data-label="Ocena">{{
+          element.finalnaOcena
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="potpisan">
+        <mat-header-cell mat-header-cell *matHeaderCellDef
+          >Potpisan</mat-header-cell
+        >
+        <mat-cell mat-cell *matCellDef="let element" data-label="Potpisan">{{
+          element.potpisan
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="espb">
+        <mat-header-cell mat-header-cell *matHeaderCellDef
+          >ESPB</mat-header-cell
+        >
+        <mat-cell mat-cell *matCellDef="let element" data-label="ESPB">{{
+          element.espb
+        }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="detalji">
+        <mat-header-cell *matHeaderCellDef>Detalji predmeta</mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="detalji">
+          <button
+            (click)="detaljiPredmeta(element)"
+            mat-button
+            matTooltip="Detalji predmeta"
+          >
+            <mat-icon>info</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+
+    <mat-paginator
+      [pageSizeOptions]="[10, 20, 30]"
+      showFirstLastButtons
+    ></mat-paginator>
+  </div>
+</div>

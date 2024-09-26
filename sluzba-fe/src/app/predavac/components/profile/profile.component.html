@@ -1,0 +1,58 @@
+<div class="center bkg-image-auth">
+  <div class="card-wrapper-auth w-500">
+    <h4 class="h4-bold">Profil profesora</h4>
+    <p class="orange-color desc-bold">{{ user.ime + " " + user.prezime }}</p>
+    <br />
+    <form>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Ime"
+          required
+          type="text"
+          [disabled]="!isEditable"
+          [(ngModel)]="user.ime"
+          name="name"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          required
+          placeholder="Prezime"
+          type="text"
+          [disabled]="!isEditable"
+          [(ngModel)]="user.prezime"
+          name="lastName"
+        />
+      </mat-form-field>
+
+      <div class="grid-2">
+        <button mat-button (click)="goBack()" class="primary-link">
+          <mat-icon> chevron_left </mat-icon>Nazad
+        </button>
+
+        <div [hidden]="isEditable">
+          <button
+            mat-button
+            type="submit"
+            class="primary-link"
+            (click)="edit()"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
+        <div [hidden]="!isEditable">
+          <button
+            mat-raised-button
+            type="submit"
+            class="primary-button"
+            (click)="save()"
+          >
+            Sačuvaj izmene
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

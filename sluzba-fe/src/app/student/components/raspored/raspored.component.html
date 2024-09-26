@@ -1,0 +1,31 @@
+<div class="center bkg-image-auth">
+  <div class="card-wrapper-auth w-500">
+    <h4 class="h4-bold">Pregled obavestenja</h4>
+    <br />
+
+    <mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="nazivPredmeta">
+        <mat-header-cell *matHeaderCellDef>Predmet</mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="Predmet">{{
+          element.nazivPredmeta
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="tekst">
+        <mat-header-cell mat-header-cell *matHeaderCellDef
+          >Tekst</mat-header-cell
+        >
+        <mat-cell mat-cell *matCellDef="let element" data-label="Tekst">{{
+          element.tekst
+        }}</mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+
+    <mat-paginator
+      [pageSizeOptions]="[10, 20, 30]"
+      showFirstLastButtons
+    ></mat-paginator>
+  </div>
+</div>

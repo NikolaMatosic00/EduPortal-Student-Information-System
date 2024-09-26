@@ -1,0 +1,42 @@
+<div class="form-container">
+  <h2>Dodavanje Studenta na Predmet</h2>
+  <form (ngSubmit)="submit()">
+    <!-- Dropdown for students -->
+    <div class="form-group">
+      <label for="student">Izaberi studenta:</label>
+      <select
+        id="student"
+        [(ngModel)]="assignment.studentId"
+        name="student"
+        required
+      >
+        <option *ngFor="let student of studenti" [value]="student.id">
+          {{ student.ime }} {{ student.prezime }} - {{ student.brojIndeksa }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Dropdown for subjects -->
+    <div class="form-group">
+      <label for="predmet">Izaberi predmet:</label>
+      <select
+        id="predmet"
+        [(ngModel)]="assignment.predmetId"
+        name="predmet"
+        required
+      >
+        <option *ngFor="let predmet of predmeti" [value]="predmet.id">
+          {{ predmet.naziv }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary">
+      Dodaj Studenta na Predmet
+    </button>
+    <button type="button" class="btn btn-secondary" (click)="goBack()">
+      Nazad
+    </button>
+  </form>
+</div>

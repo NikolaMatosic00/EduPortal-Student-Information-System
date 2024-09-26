@@ -1,0 +1,56 @@
+<div class="center bkg-image-auth">
+  <div class="card-wrapper-auth w-500">
+    <h4 class="h4-bold">Pregled rasporeda</h4>
+    <br />
+
+    <mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="nazivPredmeta">
+        <mat-header-cell *matHeaderCellDef>Predmet</mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="Predmet">{{
+          element.nazivPredmeta
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="vremePrijave">
+        <mat-header-cell mat-header-cell *matHeaderCellDef
+          >Vreme prijave</mat-header-cell
+        >
+        <mat-cell
+          mat-cell
+          *matCellDef="let element"
+          data-label="Vreme prijave"
+          >{{ element.vremePrijave }}</mat-cell
+        >
+      </ng-container>
+      <ng-container matColumnDef="nazivRoka">
+        <mat-header-cell mat-header-cell *matHeaderCellDef>Rok</mat-header-cell>
+        <mat-cell mat-cell *matCellDef="let element" data-label="Rok">{{
+          element.nazivRoka
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="ostvarenBrojBodova">
+        <mat-header-cell mat-header-cell *matHeaderCellDef
+          >Bodovi</mat-header-cell
+        >
+        <mat-cell mat-cell *matCellDef="let element" data-label="Bodovi">{{
+          element.ostvarenBrojBodova
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="finalnaOcena">
+        <mat-header-cell mat-header-cell *matHeaderCellDef
+          >Ocena</mat-header-cell
+        >
+        <mat-cell mat-cell *matCellDef="let element" data-label="Ocena">{{
+          element.finalnaOcena
+        }}</mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+
+    <mat-paginator
+      [pageSizeOptions]="[10, 20, 30]"
+      showFirstLastButtons
+    ></mat-paginator>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="center bkg-image-auth">
+  <div class="card-wrapper-auth w-500">
+    <h4 class="h4-bold">Pregled uplata</h4>
+    <br />
+
+    <mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="iznos">
+        <mat-header-cell *matHeaderCellDef>Iznos</mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="Iznos"
+          >{{ element.iznos }}RSD</mat-cell
+        >
+      </ng-container>
+      <ng-container matColumnDef="svrha">
+        <mat-header-cell mat-header-cell *matHeaderCellDef
+          >Svrha</mat-header-cell
+        >
+        <mat-cell mat-cell *matCellDef="let element" data-label="Svrha">{{
+          element.svrha
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="vremeUplate">
+        <mat-header-cell mat-header-cell *matHeaderCellDef
+          >Vreme</mat-header-cell
+        >
+        <mat-cell mat-cell *matCellDef="let element" data-label="Vreme">{{
+          element.vremeUplate
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="imeStudenta">
+        <mat-header-cell mat-header-cell *matHeaderCellDef>Ime</mat-header-cell>
+        <mat-cell mat-cell *matCellDef="let element" data-label="Ime">{{
+          element.imeStudenta
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="prezimeStudenta">
+        <mat-header-cell mat-header-cell *matHeaderCellDef
+          >Prezime</mat-header-cell
+        >
+        <mat-cell mat-cell *matCellDef="let element" data-label="Prezime">{{
+          element.prezimeStudenta
+        }}</mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+
+    <mat-paginator
+      [pageSizeOptions]="[10, 20, 30]"
+      showFirstLastButtons
+    ></mat-paginator>
+  </div>
+</div>

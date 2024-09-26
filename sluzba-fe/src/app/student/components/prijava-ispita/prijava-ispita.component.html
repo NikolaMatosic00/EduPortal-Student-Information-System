@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Prijava za polaganje ispita</h2>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Odaberite termin polaganja</mat-label>
+    <mat-select [(value)]="selectedTerminId">
+      <mat-option *ngFor="let termin of terminiPolaganja" [value]="termin.id">
+        {{ termin.nazivRoka }} - {{ termin.predmet }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="prijaviIspit()">
+    Prijavi se
+  </button>
+</div>

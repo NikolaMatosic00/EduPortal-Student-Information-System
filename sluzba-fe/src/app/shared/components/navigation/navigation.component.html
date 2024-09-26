@@ -1,0 +1,264 @@
+<mat-sidenav-container class="example-container" position="end">
+  <mat-sidenav-content position="end">
+    <mat-toolbar>
+      <div>
+        <button
+          mat-button
+          *ngIf="!!roleAdmin"
+          [routerLink]="['/admin/uplate']"
+          routerLinkActive="active-route"
+        >
+          Uplate
+        </button>
+      </div>
+      <div>
+        <button
+          mat-button
+          *ngIf="!!roleAdmin"
+          [routerLink]="['/admin/dodajPredmet']"
+          routerLinkActive="active-route"
+        >
+          Kreiranje Predmeta
+        </button>
+      </div>
+      <div>
+        <button
+          mat-button
+          *ngIf="!!roleAdmin"
+          [routerLink]="['/admin/dodajUloguNaPredmet']"
+          routerLinkActive="active-route"
+        >
+          Dodavanja uloge na predmet
+        </button>
+      </div>
+      <div>
+        <button
+          mat-button
+          *ngIf="!!roleAdmin"
+          [routerLink]="['/admin/dodavanjePredavaca']"
+          routerLinkActive="active-route"
+        >
+          Dodavanje predavaca
+        </button>
+      </div>
+      <div>
+        <button
+          mat-button
+          *ngIf="!!roleAdmin"
+          [routerLink]="['/admin/dodavanjeStudenta']"
+          routerLinkActive="active-route"
+        >
+          Dodavanje studenta
+        </button>
+      </div>
+      <div>
+        <button
+          mat-button
+          *ngIf="!!roleAdmin"
+          [routerLink]="['/admin/dodavanjeStudentaNaPredmet']"
+          routerLinkActive="active-route"
+        >
+          Dodavanje studenta na predmet
+        </button>
+      </div>
+      <div>
+        <button
+          mat-button
+          *ngIf="!!roleAdmin"
+          [routerLink]="['/admin/dodavanjeSmera']"
+          routerLinkActive="active-route"
+        >
+          Dodavanje smera
+        </button>
+      </div>
+      <div>
+        <button
+          mat-button
+          *ngIf="!!roleAdmin"
+          [routerLink]="['/admin/evidentiranjeUplate']"
+          routerLinkActive="active-route"
+        >
+          Evidentiranje uplate
+        </button>
+      </div>
+      <div>
+        <button
+          mat-button
+          *ngIf="!!roleStudent"
+          [routerLink]="['/student']"
+          routerLinkActive="active-route"
+        >
+          Profil
+        </button>
+      </div>
+      <div>
+        <button
+          mat-button
+          *ngIf="!!roleStudent"
+          [routerLink]="['/student/uplate']"
+          routerLinkActive="active-route"
+        >
+          Uplate
+        </button>
+      </div>
+      <div>
+        <button
+          mat-button
+          *ngIf="!!roleStudent"
+          [routerLink]="['/student/predmeti']"
+          routerLinkActive="active-route"
+        >
+          Svi predmeti
+        </button>
+      </div>
+      <div>
+        <button
+          mat-button
+          *ngIf="!!roleStudent"
+          [routerLink]="['/student/predmetiZaPolaganje']"
+          routerLinkActive="active-route"
+        >
+          Predmeti za polaganje
+        </button>
+      </div>
+      <div>
+        <button
+          mat-button
+          *ngIf="!!roleStudent"
+          [routerLink]="['/student/raspored']"
+          routerLinkActive="active-route"
+        >
+          Obavestajna tabla
+        </button>
+      </div>
+      <div>
+        <button
+          mat-button
+          *ngIf="!!roleStudent"
+          [routerLink]="['/student/istorijaPolaganja']"
+          routerLinkActive="active-route"
+        >
+          Istorija polaganja
+        </button>
+      </div>
+      <div>
+        <button
+          mat-button
+          *ngIf="!!roleStudent"
+          [routerLink]="['/student/prijavaIspita']"
+          routerLinkActive="active-route"
+        >
+          Prijava Ispita
+        </button>
+      </div>
+
+      <div>
+        <button
+          mat-button
+          *ngIf="!!rolePredavac"
+          [routerLink]="['/predavac']"
+          routerLinkActive="active-route"
+        >
+          Profil
+        </button>
+      </div>
+      <div>
+        <button
+          mat-button
+          *ngIf="!!rolePredavac"
+          [routerLink]="['/predavac/postaviObavestenje']"
+          routerLinkActive="active-route"
+        >
+          Postavi obavestenje
+        </button>
+      </div>
+      <div>
+        <button
+          mat-button
+          *ngIf="!!rolePredavac"
+          [routerLink]="['/predavac/elektronskiPotpis']"
+          routerLinkActive="active-route"
+        >
+          Elektronski potpis
+        </button>
+      </div>
+      <div>
+        <button
+          mat-button
+          *ngIf="!!rolePredavac"
+          [routerLink]="['/predavac/unesiOcenu']"
+          routerLinkActive="active-route"
+        >
+          Unesi ocenu
+        </button>
+      </div>
+      <div>
+        <button
+          mat-button
+          *ngIf="!!rolePredavac"
+          [routerLink]="['/predavac/unesiBodove']"
+          routerLinkActive="active-route"
+        >
+          Unesi bodove
+        </button>
+      </div>
+      <div>
+        <button
+          mat-button
+          *ngIf="!!rolePredavac"
+          [routerLink]="['/predavac/prijave']"
+          routerLinkActive="active-route"
+        >
+          Pregled prijava
+        </button>
+      </div>
+      <div>
+        <button
+          mat-button
+          *ngIf="!!rolePredavac"
+          [routerLink]="['/predavac/dodajTermin']"
+          routerLinkActive="active-route"
+        >
+          Dodaj termin
+        </button>
+      </div>
+      <span class="menu-spacer"></span>
+
+      <button
+        mat-button
+        *ngIf="!roleAdmin && !roleStudent && !rolePredavac"
+        [routerLink]="['/auth']"
+        routerLinkActive="active-route"
+      >
+        Prijava
+      </button>
+
+      <button
+        *ngIf="roleAdmin || roleStudent || rolePredavac"
+        mat-button
+        [matMenuTriggerFor]="beforeMenu"
+      >
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #beforeMenu="matMenu" xPosition="before">
+        <button mat-menu-item [routerLink]="['/auth/change-password']">
+          Promena lozinke
+        </button>
+        <button mat-menu-item [routerLink]="['/auth/change-email']">
+          Promena emaila
+        </button>
+        <button mat-menu-item [routerLink]="['/auth']" (click)="logout()">
+          Logout
+        </button>
+      </mat-menu>
+    </mat-toolbar>
+
+    <mat-sidenav #menu class="mobile-sidenav" [mode]="mode.value">
+      <span class="logo-sm"> </span>
+      <div (click)="menu.toggle()"><mat-icon>clear</mat-icon></div>
+    </mat-sidenav>
+    <div class="mt-8vh">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

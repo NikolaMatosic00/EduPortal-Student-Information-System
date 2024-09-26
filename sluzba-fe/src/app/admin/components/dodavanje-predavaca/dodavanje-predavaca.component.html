@@ -1,0 +1,65 @@
+<div class="center bkg-image-auth">
+  <div class="card-wrapper-auth w-500">
+    <h4 class="h4-bold">Dodavanje novog predavača</h4>
+    <br />
+    <form (ngSubmit)="submit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Ime</mat-label>
+        <input
+          matInput
+          placeholder="Ime"
+          required
+          [(ngModel)]="predavac.ime"
+          name="ime"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Prezime</mat-label>
+        <input
+          matInput
+          placeholder="Prezime"
+          required
+          [(ngModel)]="predavac.prezime"
+          name="prezime"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          placeholder="Email"
+          required
+          [(ngModel)]="predavac.email"
+          name="email"
+          type="email"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Lozinka</mat-label>
+        <input
+          matInput
+          placeholder="Lozinka"
+          required
+          [(ngModel)]="predavac.pass"
+          name="pass"
+          type="password"
+        />
+      </mat-form-field>
+
+      <div class="grid-2">
+        <button mat-button (click)="goBack()" class="primary-link">
+          <mat-icon>chevron_left</mat-icon>Nazad
+        </button>
+
+        <div>
+          <button mat-raised-button type="submit" class="primary-button">
+            Dodaj
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

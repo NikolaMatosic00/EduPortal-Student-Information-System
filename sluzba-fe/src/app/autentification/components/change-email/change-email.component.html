@@ -1,0 +1,38 @@
+<div class="center bkg-image-auth">
+  <div class="card-wrapper-auth w-500">
+    <div class="h4-bold">Promena emaila</div>
+    <br />
+    <form #changeEmailForm="ngForm" autocomplete="off">
+      <p class="small-bold">Nov email</p>
+      <mat-form-field appearance="outline" class="w-300">
+        <mat-label>Unesite nov email</mat-label>
+        <input
+          matInput
+          type="text"
+          id="novEmail"
+          name="novEmail"
+          [(ngModel)]="novEmail"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-300">
+        <mat-label>Ponovite nov email</mat-label>
+        <input
+          matInput
+          type="text"
+          id="novEmail2"
+          name="novEmail2"
+          [(ngModel)]="novEmail2"
+          required
+        />
+      </mat-form-field>
+
+      <div class="center">
+        <button class="primary-button" (click)="confirmChangeEmail()">
+          Potvrdi
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

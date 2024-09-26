@@ -1,0 +1,84 @@
+Center the content and card .center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Wrapper for the form card */
+.card-wrapper {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Form spacing */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Style the title */
+h4 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Full width form fields */
+mat-form-field {
+  width: 100%;
+}
+
+/* Buttons aligned at the bottom */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Styling for the 'Dodaj' button */
+button.primary-button {
+  background-color: #1976d2;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button.primary-button:hover {
+  background-color: #155a9c;
+}
+
+/* 'Nazad' button styled as a link */
+button.primary-link {
+  background: none;
+  border: none;
+  color: #1976d2;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+button.primary-link:hover {
+  text-decoration: underline;
+}
+
+.mat-icon {
+  vertical-align: middle;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .card-wrapper {
+    width: 90%;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,44 @@
+<div class="center bkg-image-auth">
+  <div class="card-wrapper-auth w-500">
+    <h4 class="h4-bold">Unos obavestenja</h4>
+    <br />
+    <form>
+      <mat-form-field appearance="fill">
+        <mat-label>Predmet</mat-label>
+        <mat-select [(ngModel)]="obavestenje.idPredmet" name="idPredmet">
+          <mat-option *ngFor="let predmet of predmeti" [value]="predmet.id">
+            {{ predmet.naziv }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="tekst"
+          required
+          type="text"
+          [(ngModel)]="obavestenje.tekst"
+          name="tekst"
+        />
+      </mat-form-field>
+
+      <div class="grid-2">
+        <button mat-button (click)="goBack()" class="primary-link">
+          <mat-icon> chevron_left </mat-icon>Nazad
+        </button>
+
+        <div>
+          <button
+            mat-raised-button
+            type="submit"
+            class="primary-button"
+            (click)="save()"
+          >
+            Sačuvaj izmene
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
